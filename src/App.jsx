@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Person from "./components/Person";
+import usePhonebook from "./hooks/usePhohebook";
+import { initialPhoneBook } from "./data";
 
 function App() {
-  const [count, setCount] = useState(0)
-  
+  const {phoneBook, handleAddPerson, handleRemovePerson} = usePhonebook(initialPhoneBook);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button
+        onClick={() =>
+          handleAddPerson({
+            name: "Erhan",
+            avatar: "https://i.pravatar.cc/150?img=61",
+            phoneNumbers: [
+              { name: "home", number: "555-1234" },
+              { name: "work", number: "555-5678" },
+            ],
+            addresses: [
+              { name: "home", address: "123 Oak St, City, Country" },
+              { name: "work", address: "456 Pine Ave, Town, Country" },
+            ],
+            emails: [
+              { name: "personal", email: "alice@email.com" },
+              { name: "work", email: "asmith@company.com" },
+            ],
+          })
+        }
+      >
+        Ekle
+      </button>
+      {phoneBook.map((person, idx) => {
+        return (
+          <Person
+            onRemovePerson={() => handleRemovePerson(idx)}
+            key={person.name}
+            avatar={person.avatar}
+            name={person.name}
+            phoneNumbers={person.phoneNumbers}
+            addresses={person.addresses}
+            emails={person.emails}
+          />
+        );
+      })}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

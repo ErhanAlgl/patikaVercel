@@ -1,42 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.list-label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.list-value {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+  margin-right: 10px;
+  font-weight: normal;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.person-header {
+  width: 150px;
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.person-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.card {
-  padding: 2em;
+.person-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+.list-type {
+  font-size: 8pt;
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+.person {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.person-list-entry ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.person-list-entry li {
+  display: inline-block;
+  margin-right: 5px;
+  
+}
+
+.person-remove-x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #ccc;
 }
